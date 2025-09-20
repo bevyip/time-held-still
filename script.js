@@ -82,4 +82,27 @@ class ImageSlider {
 // Initialize the slider when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   new ImageSlider();
+
+  // Ensure video plays on mobile
+  const video = document.querySelector(".video-background");
+  if (video) {
+    // Try to play the video
+    const playVideo = () => {
+      video.play().catch((e) => {
+        console.log("Video autoplay failed:", e);
+        // If autoplay fails, try again on user interaction
+        document.addEventListener("touchstart", playVideo, { once: true });
+        document.addEventListener("click", playVideo, { once: true });
+      });
+    };
+
+    playVideo();
+
+    // Ensure video plays when page becomes visible (mobile browsers pause videos when tab is not active)
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && video.paused) {
+        video.play().catch((e) => console.log("Video resume failed:", e));
+      }
+    });
+  }
 });
