@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Comparison Slider</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <video class="video-background" autoplay loop>
+        <source src="img/video.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <div class="image-container">
+            <div class="image-wrapper">
+                <img src="img/f1_photo.png" alt="Photo 1" class="photo photo-1" id="photo1">
+                <img src="img/f2_photo.png" alt="Photo 2" class="photo photo-2" id="photo2">
+            </div>
+        </div>
+
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slider-thumb" id="sliderThumb"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
